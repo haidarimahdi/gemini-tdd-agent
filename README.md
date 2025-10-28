@@ -1,12 +1,16 @@
-# OpenAI Chat Function Call (Java)
+# Gemini TDD Agent
 
 ## Description
-Calls the OpenAI Chat Completion API (GPT-4 or GPT-3.5) with function calling enabled.
+A Java-based AI agent that autonomously writes and refactors code based on Test-Driven Development (TDD) principles.
+
+This agent uses Google's Gemini model to read Java test files from a `code-sandbox` directory, write the corresponding 
+source code, and then compile and run the tests using Maven to verify its work.
 
 ## Requirements
 - Java 11+
 - Maven
-- Environment variable `OPENAI_API_KEY` set
+- A `code-sandbox` directory (see `code-sandbox/pom.xml`)
+- Environment variable `GEMINI_API_KEY` set
 
 ## Compile
 ```bash
@@ -15,6 +19,6 @@ mvn clean compile
 
 ## Usage
 ```bash
-export OPENAI_API_KEY=sk-...
-mvn exec:java
+export GEMINI_API_KEY=AIzaSyBww8YT7sQ9acjac5_b1EBPrObunne9Zeo
+mvn exec:java -Dexec.args="<relative-test-path>"
 ```
