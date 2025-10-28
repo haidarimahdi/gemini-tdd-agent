@@ -1,10 +1,21 @@
 # Gemini TDD Agent
 
 ## Description
-A Java-based AI agent that autonomously writes and refactors code based on Test-Driven Development (TDD) principles.
+This project is a Java-based autonomous AI agent built for a university project (ITE Project, 5 ECTS). It demonstrates the Model Context Protocol (MCP) by using Google's Gemini API to automate the Test-Driven Development (TDD) workflow.
 
-This agent uses Google's Gemini model to read Java test files from a `code-sandbox` directory, write the corresponding 
-source code, and then compile and run the tests using Maven to verify its work.
+When given a path to a JUnit test file, the agent:
+
+- Analyzes the test cases to understand the requirements.
+
+- Determines the correct source file path (e.g., src/main/java/...).
+
+- Writes the Java source code to satisfy the tests.
+
+- Executes mvn clean test in a secure sandbox to compile and verify its own work.
+
+- Iterates by analyzing build failures or test errors and fixing its code until all tests pass.
+
+The agent operates within a secure code-sandbox directory and uses a resilient API client with exponential backoff to handle network errors.
 
 ## Requirements
 - Java 11+
