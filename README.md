@@ -30,6 +30,6 @@ mvn clean compile
 
 ## Usage
 ```bash
-export GEMINI_API_KEY=AIzaSyBww8YT7sQ9acjac5_b1EBPrObunne9Zeo
+export GEMINI_API_KEY=GEMINIAPIKEY
 mvn exec:java -Dexec.args="<relative-test-path>"
 ```
